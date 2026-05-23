@@ -1,295 +1,309 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <title>Convite de Casamento - Neroci & Vanessa</title>
+<title>Convite de Casamento - Neroci & Vanessa</title>
 
-  <!-- PREVIEW AUTOMÁTICO -->
-  <meta property="og:title" content="Convite de Casamento - Neroci & Vanessa">
-  <meta property="og:description" content="21 de Novembro de 2026 às 17:00 • Recanto Wollf">
-  <meta property="og:image" content="https://theloggan.github.io/neroci-vanessa/banner-convite.png">
-  <meta property="og:url" content="https://theloggan.github.io/neroci-vanessa/">
-  <meta property="og:type" content="website">
+<!-- PREVIEW AUTOMÁTICO -->
+<meta property="og:title" content="Convite de Casamento - Neroci & Vanessa">
+<meta property="og:description" content="21 de Novembro de 2026 às 17:00 • Recanto Wollf">
+<meta property="og:image" content="https://theloggan.github.io/neroci-vanessa/banner-convite.png">
+<meta property="og:url" content="https://theloggan.github.io/neroci-vanessa/">
+<meta property="og:type" content="website">
 
-  <meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:card" content="summary_large_image">
 
-  <style>
-    *{
-      margin:0;
-      padding:0;
-      box-sizing:border-box;
-    }
+<style>
 
-    body{
-      background:#f7f4ef;
-      min-height:100vh;
-      display:flex;
-      justify-content:center;
-      align-items:center;
-      padding:20px;
-      font-family:Arial, sans-serif;
-    }
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
 
-    .container{
-      width:100%;
-      max-width:1600px;
-    }
+body{
+    background:#f6f3ee;
+    min-height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    padding:20px;
+    font-family:Arial,sans-serif;
+}
 
-    .convite{
-      position:relative;
-      width:100%;
-      overflow:hidden;
-      border-radius:30px;
-      box-shadow:0 20px 60px rgba(0,0,0,0.18);
-      background:white;
-    }
+.container{
+    width:100%;
+    max-width:1600px;
+}
 
-    .banner{
-      width:100%;
-      display:block;
-    }
+/* CONVITE */
+.convite{
+    position:relative;
+    width:100%;
+    overflow:hidden;
+    border-radius:30px;
+    box-shadow:0 20px 60px rgba(0,0,0,0.18);
+    background:white;
+}
 
-    /* FOTO DO CASAL */
+.banner{
+    width:100%;
+    display:block;
+}
+
+/* FOTO CASAL */
+.foto-casal{
+    position:absolute;
+    left:6%;
+    top:17%;
+    width:31%;
+    border-radius:35px;
+    overflow:hidden;
+
+    border:6px solid #d7b56d;
+
+    box-shadow:
+    0 0 0 4px #fff,
+    0 15px 40px rgba(0,0,0,0.18),
+    0 0 25px rgba(215,181,109,0.45);
+
+    background:linear-gradient(135deg,#ffffff,#f8f3e7);
+
+    padding:10px;
+
+    z-index:20;
+}
+
+.foto-casal img{
+    width:100%;
+    display:block;
+    border-radius:25px;
+    object-fit:cover;
+}
+
+/* BOTÃO MAPS */
+.btn-maps{
+    position:absolute;
+    left:49.1%;
+    top:82.2%;
+    width:22.2%;
+    height:6.2%;
+    border-radius:999px;
+    z-index:30;
+    cursor:pointer;
+    transition:0.3s;
+}
+
+.btn-maps:hover{
+    background:rgba(255,255,255,0.08);
+    box-shadow:0 0 25px rgba(215,181,109,0.8);
+}
+
+/* BOTÃO WHATSAPP */
+.btn-whatsapp{
+    position:absolute;
+    left:6.8%;
+    top:73%;
+    width:17%;
+    height:12%;
+    z-index:30;
+    border-radius:25px;
+    cursor:pointer;
+    transition:0.3s;
+}
+
+.btn-whatsapp:hover{
+    background:rgba(255,255,255,0.08);
+    box-shadow:0 0 25px rgba(215,181,109,0.8);
+}
+
+/* CONTADOR */
+.contador-box{
+    margin-top:20px;
+    background:linear-gradient(135deg,#ffffff,#fbf7ef);
+    border:2px solid #d7b56d;
+    border-radius:25px;
+    padding:20px;
+    text-align:center;
+    box-shadow:0 10px 35px rgba(0,0,0,0.12);
+}
+
+.contador-titulo{
+    color:#0b5d47;
+    font-size:28px;
+    font-family:Georgia, serif;
+    margin-bottom:18px;
+    font-weight:bold;
+}
+
+.contador{
+    display:flex;
+    justify-content:center;
+    gap:14px;
+    flex-wrap:wrap;
+}
+
+.tempo{
+    min-width:95px;
+    padding:14px 10px;
+    border-radius:18px;
+    background:linear-gradient(135deg,#0b5d47,#145c49);
+    border:2px solid #d7b56d;
+    color:white;
+    box-shadow:0 8px 20px rgba(0,0,0,0.15);
+}
+
+.tempo strong{
+    display:block;
+    font-size:30px;
+    line-height:1;
+}
+
+.tempo span{
+    display:block;
+    margin-top:5px;
+    font-size:12px;
+    letter-spacing:1px;
+    text-transform:uppercase;
+}
+
+@media(max-width:900px){
+
     .foto-casal{
-      position:absolute;
-      left:4%;
-      top:14%;
-      width:30%;
-      border-radius:35px;
-      overflow:hidden;
-      border:6px solid #d7b56d;
-      box-shadow:
-        0 0 0 4px #fff,
-        0 15px 40px rgba(0,0,0,0.18),
-        0 0 25px rgba(215,181,109,0.45);
-      background:linear-gradient(135deg,#ffffff,#f8f3e7);
-      padding:10px;
-    }
-
-    .foto-casal img{
-      width:100%;
-      display:block;
-      border-radius:25px;
-      object-fit:cover;
-    }
-
-    /* BOTÃO MAPS */
-    .btn-maps{
-      position:absolute;
-      left:49.1%;
-      top:82.2%;
-      width:22.2%;
-      height:6.2%;
-      border-radius:999px;
-      z-index:10;
-      cursor:pointer;
-      transition:0.3s;
-    }
-
-    .btn-maps:hover{
-      background:rgba(255,255,255,0.08);
-      box-shadow:0 0 25px rgba(215,181,109,0.8);
-    }
-
-    /* BOTÃO WHATSAPP */
-    .btn-whatsapp{
-      position:absolute;
-      left:7%;
-      top:73%;
-      width:17%;
-      height:10%;
-      z-index:15;
-      border-radius:25px;
-      cursor:pointer;
-      transition:0.3s;
-    }
-
-    .btn-whatsapp:hover{
-      background:rgba(255,255,255,0.08);
-      box-shadow:0 0 25px rgba(215,181,109,0.8);
-    }
-
-    /* CONTADOR */
-    .contador-box{
-      margin-top:20px;
-      background:linear-gradient(135deg,#ffffff,#fbf7ef);
-      border:2px solid #d7b56d;
-      border-radius:25px;
-      padding:20px;
-      text-align:center;
-      box-shadow:0 10px 35px rgba(0,0,0,0.12);
+        width:42%;
+        left:5%;
+        top:18%;
     }
 
     .contador-titulo{
-      color:#0b5d47;
-      font-size:28px;
-      font-family:Georgia, serif;
-      margin-bottom:18px;
-      font-weight:bold;
-    }
-
-    .contador{
-      display:flex;
-      justify-content:center;
-      gap:14px;
-      flex-wrap:wrap;
+        font-size:20px;
     }
 
     .tempo{
-      min-width:95px;
-      padding:14px 10px;
-      border-radius:18px;
-      background:linear-gradient(135deg,#0b5d47,#145c49);
-      border:2px solid #d7b56d;
-      color:white;
-      box-shadow:0 8px 20px rgba(0,0,0,0.15);
+        min-width:70px;
     }
 
     .tempo strong{
-      display:block;
-      font-size:30px;
-      line-height:1;
-    }
-
-    .tempo span{
-      display:block;
-      margin-top:5px;
-      font-size:12px;
-      letter-spacing:1px;
-      text-transform:uppercase;
-    }
-
-    @media(max-width:900px){
-
-      .foto-casal{
-        width:40%;
-      }
-
-      .contador-titulo{
-        font-size:20px;
-      }
-
-      .tempo{
-        min-width:70px;
-      }
-
-      .tempo strong{
         font-size:22px;
-      }
     }
-  </style>
+}
+
+</style>
 </head>
 
 <body>
 
-  <main class="container">
+<main class="container">
 
-    <div class="convite">
+<div class="convite">
 
-      <!-- BANNER -->
-      <img src="banner-convite.png" class="banner" alt="Convite Casamento">
+<!-- BANNER -->
+<img src="banner-convite.png" class="banner" alt="Convite Casamento">
 
-      <!-- FOTO CASAL -->
-      <div class="foto-casal">
-        <img src="casal.png" alt="Neroci e Vanessa">
-      </div>
+<!-- FOTO CASAL -->
+<div class="foto-casal">
 
-      <!-- BOTÃO LOCALIZAÇÃO -->
-      <a
-        class="btn-maps"
-        href="https://maps.app.goo.gl/XsYa17Ck2yia9vxGA"
-        target="_blank"
-        aria-label="Ver localização">
-      </a>
+<img src="casal.jpg" alt="Neroci e Vanessa">
 
-      <!-- BOTÃO WHATSAPP -->
-      <a
-        class="btn-whatsapp"
-        href="https://wa.me/554791424714?text=Olá!%20Quero%20confirmar%20minha%20presença%20no%20casamento."
-        target="_blank"
-        aria-label="WhatsApp">
-      </a>
+</div>
 
-    </div>
+<!-- BOTÃO LOCALIZAÇÃO -->
+<a
+class="btn-maps"
+href="https://maps.app.goo.gl/XsYa17Ck2yia9vxGA"
+target="_blank"
+aria-label="Ver localização">
+</a>
 
-    <!-- CONTADOR -->
-    <section class="contador-box">
+<!-- BOTÃO WHATSAPP -->
+<a
+class="btn-whatsapp"
+href="https://wa.me/554791424714?text=Olá!%20Quero%20confirmar%20minha%20presença%20no%20casamento."
+target="_blank"
+aria-label="WhatsApp">
+</a>
 
-      <div class="contador-titulo">
-        Faltam para o casamento
-      </div>
+</div>
 
-      <div class="contador">
+<!-- CONTADOR -->
+<section class="contador-box">
 
-        <div class="tempo">
-          <strong id="dias">0</strong>
-          <span>Dias</span>
-        </div>
+<div class="contador-titulo">
+Faltam para o casamento
+</div>
 
-        <div class="tempo">
-          <strong id="horas">0</strong>
-          <span>Horas</span>
-        </div>
+<div class="contador">
 
-        <div class="tempo">
-          <strong id="minutos">0</strong>
-          <span>Minutos</span>
-        </div>
+<div class="tempo">
+<strong id="dias">0</strong>
+<span>Dias</span>
+</div>
 
-        <div class="tempo">
-          <strong id="segundos">0</strong>
-          <span>Segundos</span>
-        </div>
+<div class="tempo">
+<strong id="horas">0</strong>
+<span>Horas</span>
+</div>
 
-      </div>
+<div class="tempo">
+<strong id="minutos">0</strong>
+<span>Minutos</span>
+</div>
 
-    </section>
+<div class="tempo">
+<strong id="segundos">0</strong>
+<span>Segundos</span>
+</div>
 
-  </main>
+</div>
 
-  <script>
+</section>
 
-    const dataCasamento = new Date("2026-11-21T17:00:00-03:00").getTime();
+</main>
 
-    function atualizarContador(){
+<script>
 
-      const agora = new Date().getTime();
+const dataCasamento =
+new Date("2026-11-21T17:00:00-03:00").getTime();
 
-      const distancia = dataCasamento - agora;
+function atualizarContador(){
 
-      if(distancia <= 0){
+const agora = new Date().getTime();
 
-        document.querySelector(".contador-titulo").innerHTML =
-        "Chegou o grande dia!";
+const distancia = dataCasamento - agora;
 
-        return;
-      }
+if(distancia <= 0){
 
-      const dias =
-      Math.floor(distancia / (1000 * 60 * 60 * 24));
+document.querySelector(".contador-titulo").innerHTML =
+"Chegou o grande dia!";
 
-      const horas =
-      Math.floor((distancia % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+return;
+}
 
-      const minutos =
-      Math.floor((distancia % (1000 * 60 * 60)) / (1000 * 60));
+const dias =
+Math.floor(distancia / (1000 * 60 * 60 * 24));
 
-      const segundos =
-      Math.floor((distancia % (1000 * 60)) / 1000);
+const horas =
+Math.floor((distancia % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
 
-      document.getElementById("dias").innerHTML = dias;
-      document.getElementById("horas").innerHTML = horas;
-      document.getElementById("minutos").innerHTML = minutos;
-      document.getElementById("segundos").innerHTML = segundos;
-    }
+const minutos =
+Math.floor((distancia % (1000 * 60 * 60)) / (1000 * 60));
 
-    atualizarContador();
+const segundos =
+Math.floor((distancia % (1000 * 60)) / 1000);
 
-    setInterval(atualizarContador, 1000);
+document.getElementById("dias").innerHTML = dias;
+document.getElementById("horas").innerHTML = horas;
+document.getElementById("minutos").innerHTML = minutos;
+document.getElementById("segundos").innerHTML = segundos;
+}
 
-  </script>
+atualizarContador();
+
+setInterval(atualizarContador,1000);
+
+</script>
 
 </body>
 </html>
