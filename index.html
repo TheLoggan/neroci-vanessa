@@ -1,281 +1,295 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Convite Casamento - Neroci & Vanessa</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Convite de Casamento - Neroci & Vanessa</title>
+
+  <!-- PREVIEW AUTOMÁTICO -->
+  <meta property="og:title" content="Convite de Casamento - Neroci & Vanessa">
+  <meta property="og:description" content="21 de Novembro de 2026 às 17:00 • Recanto Wollf">
+  <meta property="og:image" content="https://theloggan.github.io/neroci-vanessa/banner-convite.png">
+  <meta property="og:url" content="https://theloggan.github.io/neroci-vanessa/">
+  <meta property="og:type" content="website">
+
+  <meta name="twitter:card" content="summary_large_image">
+
   <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-      font-family: 'Georgia', serif;
+    *{
+      margin:0;
+      padding:0;
+      box-sizing:border-box;
     }
 
-    body {
-      background: linear-gradient(135deg, #ffffff, #f7f7f7);
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      min-height: 100vh;
-      padding: 20px;
+    body{
+      background:#f7f4ef;
+      min-height:100vh;
+      display:flex;
+      justify-content:center;
+      align-items:center;
+      padding:20px;
+      font-family:Arial, sans-serif;
     }
 
-    .convite {
-      position: relative;
-      width: 100%;
-      max-width: 1400px;
-      background: white;
-      border-radius: 30px;
-      overflow: hidden;
-      box-shadow: 0 20px 60px rgba(0,0,0,0.15);
-      border: 3px solid #e6d2a2;
+    .container{
+      width:100%;
+      max-width:1600px;
     }
 
-    .topo-floral {
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 180px;
-      background: linear-gradient(to bottom, rgba(255,255,255,0.95), transparent);
-      pointer-events: none;
+    .convite{
+      position:relative;
+      width:100%;
+      overflow:hidden;
+      border-radius:30px;
+      box-shadow:0 20px 60px rgba(0,0,0,0.18);
+      background:white;
     }
 
-    .conteudo {
-      display: flex;
-      flex-wrap: wrap;
-      align-items: center;
-      justify-content: space-between;
-      padding: 60px;
-      gap: 40px;
+    .banner{
+      width:100%;
+      display:block;
     }
 
-    .foto-area {
-      flex: 1;
-      min-width: 350px;
-      position: relative;
+    /* FOTO DO CASAL */
+    .foto-casal{
+      position:absolute;
+      left:4%;
+      top:14%;
+      width:30%;
+      border-radius:35px;
+      overflow:hidden;
+      border:6px solid #d7b56d;
+      box-shadow:
+        0 0 0 4px #fff,
+        0 15px 40px rgba(0,0,0,0.18),
+        0 0 25px rgba(215,181,109,0.45);
+      background:linear-gradient(135deg,#ffffff,#f8f3e7);
+      padding:10px;
     }
 
-    .foto-area img {
-      width: 100%;
-      max-width: 650px;
-      object-fit: contain;
-      filter: drop-shadow(0 10px 30px rgba(0,0,0,0.2));
+    .foto-casal img{
+      width:100%;
+      display:block;
+      border-radius:25px;
+      object-fit:cover;
     }
 
-    .info-area {
-      flex: 1;
-      min-width: 350px;
-      text-align: center;
-      color: #2f3a2f;
+    /* BOTÃO MAPS */
+    .btn-maps{
+      position:absolute;
+      left:49.1%;
+      top:82.2%;
+      width:22.2%;
+      height:6.2%;
+      border-radius:999px;
+      z-index:10;
+      cursor:pointer;
+      transition:0.3s;
     }
 
-    .titulo {
-      font-size: 5rem;
-      color: #c59b3d;
-      line-height: 1;
-      margin-bottom: 25px;
+    .btn-maps:hover{
+      background:rgba(255,255,255,0.08);
+      box-shadow:0 0 25px rgba(215,181,109,0.8);
     }
 
-    .subtitulo {
-      font-size: 1.3rem;
-      letter-spacing: 4px;
-      color: #666;
-      margin-bottom: 40px;
+    /* BOTÃO WHATSAPP */
+    .btn-whatsapp{
+      position:absolute;
+      left:7%;
+      top:73%;
+      width:17%;
+      height:10%;
+      z-index:15;
+      border-radius:25px;
+      cursor:pointer;
+      transition:0.3s;
     }
 
-    .detalhe {
-      margin: 22px 0;
-      font-size: 1.8rem;
+    .btn-whatsapp:hover{
+      background:rgba(255,255,255,0.08);
+      box-shadow:0 0 25px rgba(215,181,109,0.8);
     }
 
-    .descricao {
-      font-size: 1.3rem;
-      color: #555;
-      margin-top: 8px;
-      font-style: italic;
+    /* CONTADOR */
+    .contador-box{
+      margin-top:20px;
+      background:linear-gradient(135deg,#ffffff,#fbf7ef);
+      border:2px solid #d7b56d;
+      border-radius:25px;
+      padding:20px;
+      text-align:center;
+      box-shadow:0 10px 35px rgba(0,0,0,0.12);
     }
 
-    .botoes {
-      display: flex;
-      justify-content: center;
-      gap: 30px;
-      margin-top: 45px;
-      flex-wrap: wrap;
+    .contador-titulo{
+      color:#0b5d47;
+      font-size:28px;
+      font-family:Georgia, serif;
+      margin-bottom:18px;
+      font-weight:bold;
     }
 
-    .botao {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      gap: 12px;
-      padding: 18px 34px;
-      border-radius: 50px;
-      text-decoration: none;
-      font-size: 1.2rem;
-      font-weight: bold;
-      transition: 0.3s ease;
-      box-shadow: 0 8px 25px rgba(0,0,0,0.15);
-      cursor: pointer;
-      border: none;
-      position: relative;
-      z-index: 20;
+    .contador{
+      display:flex;
+      justify-content:center;
+      gap:14px;
+      flex-wrap:wrap;
     }
 
-    .botao-localizacao {
-      background: linear-gradient(135deg, #0b5d47, #145c49);
-      color: white;
-      border: 3px solid #d7b56d;
-      border-radius: 60px;
-      padding: 18px 38px;
-      font-size: 1.2rem;
-      font-weight: bold;
-      letter-spacing: 1px;
-      box-shadow: 0 10px 25px rgba(0,0,0,0.18);
-      position: relative;
-      overflow: hidden;
+    .tempo{
+      min-width:95px;
+      padding:14px 10px;
+      border-radius:18px;
+      background:linear-gradient(135deg,#0b5d47,#145c49);
+      border:2px solid #d7b56d;
+      color:white;
+      box-shadow:0 8px 20px rgba(0,0,0,0.15);
     }
 
-    .botao-localizacao:hover {
-      transform: translateY(-4px) scale(1.03);
-      box-shadow: 0 14px 30px rgba(11,93,71,0.35);
-      background: linear-gradient(135deg, #0f7055, #1b7c62);
+    .tempo strong{
+      display:block;
+      font-size:30px;
+      line-height:1;
     }
 
-    .qr-areas {
-      display: flex;
-      justify-content: center;
-      gap: 50px;
-      margin-top: 60px;
-      flex-wrap: wrap;
+    .tempo span{
+      display:block;
+      margin-top:5px;
+      font-size:12px;
+      letter-spacing:1px;
+      text-transform:uppercase;
     }
 
-    .qr-box {
-      width: 230px;
-      text-align: center;
-    }
+    @media(max-width:900px){
 
-    .qr-placeholder {
-      width: 230px;
-      height: 230px;
-      border: 3px dashed #d4b06b;
-      border-radius: 25px;
-      background: #fafafa;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      color: #c0c0c0;
-      font-size: 1.2rem;
-      padding: 15px;
-    }
-
-    .qr-label {
-      margin-top: 14px;
-      font-size: 1.2rem;
-      color: #5a4a25;
-      font-weight: bold;
-    }
-
-    .flores {
-      position: absolute;
-      width: 220px;
-      opacity: 0.95;
-      pointer-events: none;
-    }
-
-    .flor-top-left {
-      top: -10px;
-      left: -10px;
-    }
-
-    .flor-bottom-right {
-      bottom: -20px;
-      right: -20px;
-      transform: rotate(180deg);
-    }
-
-    @media (max-width: 900px) {
-      .conteudo {
-        padding: 35px;
+      .foto-casal{
+        width:40%;
       }
 
-      .titulo {
-        font-size: 3.5rem;
+      .contador-titulo{
+        font-size:20px;
       }
 
-      .detalhe {
-        font-size: 1.4rem;
+      .tempo{
+        min-width:70px;
+      }
+
+      .tempo strong{
+        font-size:22px;
       }
     }
   </style>
 </head>
+
 <body>
-  <div class="convite">
-    <div class="topo-floral"></div>
 
-    <div class="conteudo">
-      <div class="foto-area">
-        <<img src="casal.jpg" alt="Neroci e Vanessa">>
+  <main class="container">
+
+    <div class="convite">
+
+      <!-- BANNER -->
+      <img src="banner-convite.png" class="banner" alt="Convite Casamento">
+
+      <!-- FOTO CASAL -->
+      <div class="foto-casal">
+        <img src="casal.jpg" alt="Neroci e Vanessa">
       </div>
 
-      <div class="info-area">
-        <div class="subtitulo">CONVITE DE CASAMENTO</div>
+      <!-- BOTÃO LOCALIZAÇÃO -->
+      <a
+        class="btn-maps"
+        href="https://maps.app.goo.gl/XsYa17Ck2yia9vxGA"
+        target="_blank"
+        aria-label="Ver localização">
+      </a>
 
-        <div class="titulo">
-          Neroci <br>&<br> Vanessa
-        </div>
+      <!-- BOTÃO WHATSAPP -->
+      <a
+        class="btn-whatsapp"
+        href="https://wa.me/554791424714?text=Olá!%20Quero%20confirmar%20minha%20presença%20no%20casamento."
+        target="_blank"
+        aria-label="WhatsApp">
+      </a>
 
-        <div class="detalhe">
-          📅 21 de Novembro de 2026
-        </div>
-
-        <div class="detalhe">
-          🕔 17:00
-        </div>
-
-        <div class="detalhe">
-          📍 Recanto Wollf
-          <div class="descricao">
-            Cerimônia e Festa no mesmo local.
-          </div>
-        </div>
-
-        <div class="botoes">
-          <button type="button"
-                  class="botao botao-localizacao"
-                  onclick="window.open('https://maps.app.goo.gl/XsYa17Ck2yia9vxGA', '_blank')">
-             📍 VER LOCALIZAÇÃO
-          </button>
-        </div>
-
-        <div class="qr-areas">
-          <div class="qr-box">
-            <button type="button"
-                    onclick="window.open('https://wa.me/554791424714?text=Olá!%20Quero%20confirmar%20minha%20presença%20no%20casamento%20de%20Neroci%20e%20Vanessa.', '_blank')"
-                    style="border:none; background:transparent; padding:0; cursor:pointer; position:relative; z-index:20;">
-              <div class="qr-placeholder" style="background:linear-gradient(135deg,#0b5d47,#128C7E); border:3px solid #d7b56d; box-shadow:0 10px 30px rgba(0,0,0,0.18); transition:0.3s ease; cursor:pointer; display:flex; flex-direction:column; gap:14px;">
-                <div style="font-size:72px; line-height:1;">💬</div>
-                <div style="color:white; font-size:1.3rem; font-weight:bold; letter-spacing:1px; text-align:center;">
-                  ABRIR WHATSAPP
-                </div>
-                <div style="color:#f7e4a8; font-size:1rem; font-weight:bold; text-align:center;">
-                  +55 47 9142-4714
-                </div>
-              </div>
-            </button>
-            <div class="qr-label">Confirmar Presença</div>
-          </div>
-
-          <div class="qr-box">
-            <div class="qr-placeholder">
-              Espaço para QR Code PIX
-            </div>
-            <div class="qr-label">Sugestão 200,00</div>
-          </div>
-        </div>
-      </div>
     </div>
-  </div>
+
+    <!-- CONTADOR -->
+    <section class="contador-box">
+
+      <div class="contador-titulo">
+        Faltam para o casamento
+      </div>
+
+      <div class="contador">
+
+        <div class="tempo">
+          <strong id="dias">0</strong>
+          <span>Dias</span>
+        </div>
+
+        <div class="tempo">
+          <strong id="horas">0</strong>
+          <span>Horas</span>
+        </div>
+
+        <div class="tempo">
+          <strong id="minutos">0</strong>
+          <span>Minutos</span>
+        </div>
+
+        <div class="tempo">
+          <strong id="segundos">0</strong>
+          <span>Segundos</span>
+        </div>
+
+      </div>
+
+    </section>
+
+  </main>
+
+  <script>
+
+    const dataCasamento = new Date("2026-11-21T17:00:00-03:00").getTime();
+
+    function atualizarContador(){
+
+      const agora = new Date().getTime();
+
+      const distancia = dataCasamento - agora;
+
+      if(distancia <= 0){
+
+        document.querySelector(".contador-titulo").innerHTML =
+        "Chegou o grande dia!";
+
+        return;
+      }
+
+      const dias =
+      Math.floor(distancia / (1000 * 60 * 60 * 24));
+
+      const horas =
+      Math.floor((distancia % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+
+      const minutos =
+      Math.floor((distancia % (1000 * 60 * 60)) / (1000 * 60));
+
+      const segundos =
+      Math.floor((distancia % (1000 * 60)) / 1000);
+
+      document.getElementById("dias").innerHTML = dias;
+      document.getElementById("horas").innerHTML = horas;
+      document.getElementById("minutos").innerHTML = minutos;
+      document.getElementById("segundos").innerHTML = segundos;
+    }
+
+    atualizarContador();
+
+    setInterval(atualizarContador, 1000);
+
+  </script>
+
 </body>
 </html>
