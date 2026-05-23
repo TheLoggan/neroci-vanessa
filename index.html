@@ -52,53 +52,49 @@ body{
   width:22.2%;
   height:6.2%;
   border-radius:999px;
-  z-index:50;
+  z-index:80;
   cursor:pointer;
 }
 
-.btn-maps:hover{
-  background:rgba(255,255,255,.08);
-  box-shadow:0 0 25px rgba(215,181,109,.8);
+/* COBRE A MOLDURA ANTIGA DO WHATSAPP */
+.whatsapp-cover{
+  position:absolute;
+  left:3.2%;
+  top:50.5%;
+  width:25.5%;
+  height:40%;
+  background:#fff;
+  z-index:55;
 }
 
-/* IMAGEM WHATSAPP COBRINDO A MOLDURA DE TRÁS */
+/* NOVA IMAGEM DO WHATSAPP */
 .whatsapp-img{
   position:absolute;
   left:2.5%;
   top:48.5%;
   width:27%;
-  z-index:60;
+  z-index:70;
   cursor:pointer;
-  transition:.3s;
-}
-
-.whatsapp-img:hover{
-  transform:scale(1.03);
-  filter:drop-shadow(0 0 20px rgba(215,181,109,.6));
 }
 
 .whatsapp-img img{
   width:100%;
   display:block;
-  background:transparent;
 }
 
-/* QR PIX */
 .pix-area{
   position:absolute;
   right:5.9%;
   top:61.2%;
   width:16.8%;
-  z-index:40;
+  z-index:60;
 }
 
 .pix-area img{
   width:100%;
   display:block;
-  border-radius:4px;
 }
 
-/* CONTADOR */
 .contador-box{
   margin-top:20px;
   background:linear-gradient(135deg,#fff,#fbf7ef);
@@ -106,7 +102,6 @@ body{
   border-radius:25px;
   padding:20px;
   text-align:center;
-  box-shadow:0 10px 35px rgba(0,0,0,.12);
 }
 
 .contador-titulo{
@@ -136,41 +131,11 @@ body{
 .tempo strong{
   display:block;
   font-size:30px;
-  line-height:1;
 }
 
 .tempo span{
-  display:block;
-  margin-top:5px;
   font-size:12px;
-  letter-spacing:1px;
   text-transform:uppercase;
-}
-
-@media(max-width:900px){
-  .whatsapp-img{
-    left:1.5%;
-    top:50%;
-    width:32%;
-  }
-
-  .pix-area{
-    width:20%;
-    right:4%;
-    top:62%;
-  }
-
-  .contador-titulo{
-    font-size:20px;
-  }
-
-  .tempo{
-    min-width:70px;
-  }
-
-  .tempo strong{
-    font-size:22px;
-  }
 }
 </style>
 </head>
@@ -183,31 +148,32 @@ body{
 <img src="banner-convite.png" class="banner" alt="Convite Casamento">
 
 <a class="btn-maps"
-   href="https://maps.app.goo.gl/XsYa17Ck2yia9vxGA"
-   target="_blank"
-   aria-label="Ver localização"></a>
+href="https://maps.app.goo.gl/XsYa17Ck2yia9vxGA"
+target="_blank"></a>
+
+<div class="whatsapp-cover"></div>
 
 <a class="whatsapp-img"
-   href="https://wa.me/554791424714?text=Olá!%20Quero%20confirmar%20minha%20presença%20no%20casamento."
-   target="_blank">
-  <img src="image(95).png" alt="Confirmar Presença">
+href="https://wa.me/554791424714?text=Olá!%20Quero%20confirmar%20minha%20presença%20no%20casamento."
+target="_blank">
+<img src="image(95).png" alt="Confirmar Presença">
 </a>
 
 <div class="pix-area">
-  <img src="qrcode-pix.png" alt="QR Code PIX">
+<img src="qrcode-pix.png" alt="QR Code PIX">
 </div>
 
 </div>
 
 <section class="contador-box">
-  <div class="contador-titulo">Faltam para o casamento</div>
+<div class="contador-titulo">Faltam para o casamento</div>
 
-  <div class="contador">
-    <div class="tempo"><strong id="dias">0</strong><span>Dias</span></div>
-    <div class="tempo"><strong id="horas">0</strong><span>Horas</span></div>
-    <div class="tempo"><strong id="minutos">0</strong><span>Minutos</span></div>
-    <div class="tempo"><strong id="segundos">0</strong><span>Segundos</span></div>
-  </div>
+<div class="contador">
+<div class="tempo"><strong id="dias">0</strong><span>Dias</span></div>
+<div class="tempo"><strong id="horas">0</strong><span>Horas</span></div>
+<div class="tempo"><strong id="minutos">0</strong><span>Minutos</span></div>
+<div class="tempo"><strong id="segundos">0</strong><span>Segundos</span></div>
+</div>
 </section>
 
 </main>
@@ -224,10 +190,10 @@ function atualizarContador(){
     return;
   }
 
-  document.getElementById("dias").innerHTML = Math.floor(distancia / (1000 * 60 * 60 * 24));
-  document.getElementById("horas").innerHTML = Math.floor((distancia % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-  document.getElementById("minutos").innerHTML = Math.floor((distancia % (1000 * 60 * 60)) / (1000 * 60));
-  document.getElementById("segundos").innerHTML = Math.floor((distancia % (1000 * 60)) / 1000);
+  document.getElementById("dias").innerHTML = Math.floor(distancia / (1000*60*60*24));
+  document.getElementById("horas").innerHTML = Math.floor((distancia % (1000*60*60*24)) / (1000*60*60));
+  document.getElementById("minutos").innerHTML = Math.floor((distancia % (1000*60*60)) / (1000*60));
+  document.getElementById("segundos").innerHTML = Math.floor((distancia % (1000*60)) / 1000);
 }
 
 atualizarContador();
