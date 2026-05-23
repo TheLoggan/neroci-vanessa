@@ -71,7 +71,7 @@ body{
     box-shadow:0 0 25px rgba(215,181,109,0.8);
 }
 
-/* QR CODE WHATSAPP */
+/* QR WHATSAPP */
 .whatsapp-img{
     position:absolute;
     left:4.5%;
@@ -90,6 +90,21 @@ body{
 .whatsapp-img img{
     width:100%;
     display:block;
+}
+
+/* QR PIX */
+.pix-area{
+    position:absolute;
+    right:8.2%;
+    top:63.5%;
+    width:15.5%;
+    z-index:40;
+}
+
+.pix-area img{
+    width:100%;
+    display:block;
+    border-radius:8px;
 }
 
 /* CONTADOR */
@@ -161,6 +176,12 @@ body{
         left:3%;
         top:55%;
     }
+
+    .pix-area{
+        width:19%;
+        right:6%;
+        top:64%;
+    }
 }
 
 </style>
@@ -194,6 +215,15 @@ src="image(88).png"
 alt="Confirmar Presença">
 
 </a>
+
+<!-- QR CODE PIX -->
+<div class="pix-area">
+
+<img
+src="qrcode-pix.png"
+alt="QR Code PIX">
+
+</div>
 
 </div>
 
