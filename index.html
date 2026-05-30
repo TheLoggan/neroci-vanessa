@@ -83,16 +83,26 @@ body{
 
 .pix-area{
   position:absolute;
-  right:5.8%;
-  top:61.66%;
-  width:16.5%;
+  right:calc(1.8% + 1cm);
+  top:66%;
+  width:8.5%;
   z-index:40;
+  text-align:center;
 }
 
 .pix-area img{
   width:100%;
   display:block;
   border-radius:4px;
+}
+
+.pix-sugestao{
+  margin-top:4px;
+  color:#0b5d47;
+  font-size:clamp(7px,1vw,16px);
+  font-weight:bold;
+  line-height:1.1;
+  white-space:nowrap;
 }
 
 .contador-box{
@@ -204,8 +214,9 @@ target="_blank">
 <img src="image(88).png" alt="Confirmar Presença">
 </a>
 
-<div class="pix-area" style="right:1.8%;top:66%;width:8.5%;">
+<div class="pix-area">
 <img src="qrcode-pix.png" alt="QR Code PIX">
+<div class="pix-sugestao">Sugestão de 200,00</div>
 </div>
 
 </div>
