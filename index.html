@@ -35,6 +35,11 @@ body{
   align-items:flex-start;
   padding:14px;
   font-family:Arial,sans-serif;
+  color:#17352d;
+}
+
+button,input,select,textarea{
+  font:inherit;
 }
 
 .container{
@@ -105,7 +110,7 @@ body{
   white-space:nowrap;
 }
 
-.contador-box{
+.contador-box,.form-box,.admin-box{
   margin-top:14px;
   background:linear-gradient(135deg,#fff,#fbf7ef);
   border:2px solid #d7b56d;
@@ -114,7 +119,7 @@ body{
   text-align:center;
 }
 
-.contador-titulo{
+.contador-titulo,.section-title{
   color:#0b5d47;
   font-size:24px;
   font-family:Georgia,serif;
@@ -151,6 +156,190 @@ body{
   text-transform:uppercase;
 }
 
+.form-grid{
+  display:grid;
+  grid-template-columns:repeat(2,minmax(0,1fr));
+  gap:12px;
+  text-align:left;
+}
+
+.field{
+  display:flex;
+  flex-direction:column;
+  gap:6px;
+}
+
+.field-full{
+  grid-column:1/-1;
+}
+
+.field label,.choice-label{
+  color:#0b5d47;
+  font-size:14px;
+  font-weight:bold;
+}
+
+.field input,.field select,.field textarea{
+  width:100%;
+  border:1px solid #d7b56d;
+  border-radius:10px;
+  padding:11px 12px;
+  background:#fff;
+  color:#17352d;
+  outline:none;
+}
+
+.field textarea{
+  min-height:84px;
+  resize:vertical;
+}
+
+.field input:focus,.field select:focus,.field textarea:focus{
+  border-color:#0b5d47;
+  box-shadow:0 0 0 3px rgba(11,93,71,.14);
+}
+
+.presence-choice{
+  display:flex;
+  align-items:center;
+  gap:8px;
+  grid-column:1/-1;
+  background:#fff;
+  border:1px solid rgba(215,181,109,.75);
+  border-radius:12px;
+  padding:12px;
+}
+
+.presence-choice input{
+  width:18px;
+  height:18px;
+  accent-color:#0b5d47;
+}
+
+.form-actions,.admin-actions{
+  display:flex;
+  justify-content:center;
+  gap:10px;
+  flex-wrap:wrap;
+  margin-top:14px;
+}
+
+.btn{
+  border:0;
+  border-radius:999px;
+  padding:12px 22px;
+  background:#0b5d47;
+  color:white;
+  font-weight:bold;
+  cursor:pointer;
+  box-shadow:0 8px 18px rgba(11,93,71,.18);
+}
+
+.btn-secondary{
+  background:#d7b56d;
+  color:#17352d;
+}
+
+.btn-danger{
+  background:#9d2f2f;
+}
+
+.btn-small{
+  padding:8px 14px;
+  font-size:13px;
+}
+
+.message{
+  min-height:22px;
+  margin-top:12px;
+  color:#0b5d47;
+  font-weight:bold;
+}
+
+.admin-login{
+  max-width:520px;
+  margin:0 auto;
+}
+
+.admin-panel{
+  display:none;
+}
+
+.admin-panel.is-visible{
+  display:block;
+}
+
+.admin-columns{
+  display:grid;
+  grid-template-columns:repeat(2,minmax(0,1fr));
+  gap:14px;
+  text-align:left;
+}
+
+.admin-column{
+  background:#fff;
+  border:1px solid rgba(215,181,109,.8);
+  border-radius:14px;
+  padding:14px;
+}
+
+.admin-column h3{
+  color:#0b5d47;
+  font-family:Georgia,serif;
+  font-size:20px;
+  margin-bottom:10px;
+  text-align:center;
+}
+
+.guest-list{
+  display:flex;
+  flex-direction:column;
+  gap:8px;
+}
+
+.guest-item{
+  border:1px solid #e5d3a8;
+  border-radius:12px;
+  overflow:hidden;
+  background:#fbf7ef;
+}
+
+.guest-item summary{
+  list-style:none;
+  cursor:pointer;
+  padding:11px 12px;
+  color:#17352d;
+  font-weight:bold;
+}
+
+.guest-item summary::-webkit-details-marker{
+  display:none;
+}
+
+.guest-details{
+  border-top:1px solid #e5d3a8;
+  padding:12px;
+  display:grid;
+  gap:7px;
+  font-size:14px;
+}
+
+.empty-list{
+  text-align:center;
+  color:#6d6d6d;
+  padding:18px 8px;
+}
+
+[hidden]{
+  display:none!important;
+}
+
+@media(max-width:760px){
+  .form-grid,.admin-columns{
+    grid-template-columns:1fr;
+  }
+}
+
 @media(max-width:600px){
   body{padding:6px}
 
@@ -162,14 +351,14 @@ body{
     border-radius:10px;
   }
 
-  .contador-box{
+  .contador-box,.form-box,.admin-box{
     width:94%;
     margin:12px auto 0;
     padding:13px 10px;
     border-radius:18px;
   }
 
-  .contador-titulo{
+  .contador-titulo,.section-title{
     font-size:22px;
     line-height:1.15;
     margin-bottom:12px;
@@ -232,10 +421,106 @@ target="_blank">
 </div>
 </section>
 
+<section class="form-box" id="confirmacao">
+<h2 class="section-title">Confirme sua presença</h2>
+
+<form id="guestForm" class="form-grid">
+<div class="field">
+<label for="nome">Nome completo *</label>
+<input id="nome" name="nome" type="text" autocomplete="name" required>
+</div>
+
+<div class="field">
+<label for="whatsapp">WhatsApp *</label>
+<input id="whatsapp" name="whatsapp" type="tel" autocomplete="tel" required>
+</div>
+
+<label class="presence-choice">
+<input id="naoPresente" name="naoPresente" type="checkbox">
+<span class="choice-label">Não poderei estar presente</span>
+</label>
+
+<div class="field confirm-field">
+<label for="relacaoPessoa">Parente ou amigo de *</label>
+<select id="relacaoPessoa" name="relacaoPessoa" required>
+<option value="">Selecione</option>
+<option value="Neroci">Neroci</option>
+<option value="Vanessa">Vanessa</option>
+<option value="Casal">Casal</option>
+</select>
+</div>
+
+<div class="field confirm-field">
+<label for="relacaoDescricao">O que você é da pessoa selecionada? *</label>
+<input id="relacaoDescricao" name="relacaoDescricao" type="text" placeholder="Ex: primo, amiga, tio..." required>
+</div>
+
+<div class="field confirm-field field-full">
+<label for="valorPresente">Valor que irá presentear para o casal *</label>
+<input id="valorPresente" name="valorPresente" type="text" inputmode="decimal" placeholder="Ex: 200,00" required>
+</div>
+
+<div class="field absence-field field-full" hidden>
+<label for="motivo">Motivo</label>
+<textarea id="motivo" name="motivo" placeholder="Você pode escrever o motivo, se quiser."></textarea>
+</div>
+
+<div class="form-actions field-full">
+<button class="btn" type="submit">Finalizar</button>
+<button class="btn btn-secondary" type="reset">Limpar</button>
+</div>
+</form>
+
+<div class="message" id="formMessage" aria-live="polite"></div>
+</section>
+
+<section class="admin-box" id="admin">
+<h2 class="section-title">Painel Admin</h2>
+
+<form id="adminLogin" class="admin-login form-grid">
+<div class="field">
+<label for="adminUsuario">Usuário</label>
+<input id="adminUsuario" type="text" autocomplete="username" required>
+</div>
+
+<div class="field">
+<label for="adminSenha">Senha</label>
+<input id="adminSenha" type="password" autocomplete="current-password" required>
+</div>
+
+<div class="admin-actions field-full">
+<button class="btn" type="submit">Entrar</button>
+</div>
+</form>
+
+<div class="message" id="adminMessage" aria-live="polite"></div>
+
+<div class="admin-panel" id="adminPanel">
+<div class="admin-actions">
+<button class="btn btn-secondary btn-small" type="button" id="logoutAdmin">Sair do painel</button>
+</div>
+
+<div class="admin-columns">
+<div class="admin-column">
+<h3>Confirmados</h3>
+<div class="guest-list" id="confirmedList"></div>
+</div>
+
+<div class="admin-column">
+<h3>Não poderão estar presentes</h3>
+<div class="guest-list" id="absentList"></div>
+</div>
+</div>
+</div>
+</section>
+
 </main>
 
 <script>
 const dataCasamento = new Date("2026-11-21T17:00:00-03:00").getTime();
+const STORAGE_KEY = "nerociVanessaConvidados";
+const ADMIN_USER = "Admin";
+const ADMIN_PASS = "Vanessa";
 
 function atualizarContador(){
   const agora = new Date().getTime();
@@ -252,8 +537,150 @@ function atualizarContador(){
   document.getElementById("segundos").innerHTML = Math.floor((distancia % (1000*60))/1000);
 }
 
+function getGuests(){
+  return JSON.parse(localStorage.getItem(STORAGE_KEY) || "[]");
+}
+
+function saveGuests(guests){
+  localStorage.setItem(STORAGE_KEY, JSON.stringify(guests));
+}
+
+function escapeHtml(value){
+  return String(value || "").replace(/[&<>"']/g, function(char){
+    return {"&":"&amp;","<":"&lt;",">":"&gt;","\"":"&quot;","'":"&#039;"}[char];
+  });
+}
+
+function setConfirmationRequired(isAbsent){
+  document.querySelectorAll(".confirm-field").forEach(function(field){
+    field.hidden = isAbsent;
+    field.querySelectorAll("input,select,textarea").forEach(function(input){
+      input.required = !isAbsent;
+    });
+  });
+
+  document.querySelectorAll(".absence-field").forEach(function(field){
+    field.hidden = !isAbsent;
+  });
+}
+
+function renderGuests(){
+  const guests = getGuests();
+  const confirmedList = document.getElementById("confirmedList");
+  const absentList = document.getElementById("absentList");
+  const confirmed = guests.filter(function(guest){return guest.status === "confirmed";});
+  const absent = guests.filter(function(guest){return guest.status === "absent";});
+
+  confirmedList.innerHTML = confirmed.length ? confirmed.map(function(guest){
+    return `
+      <details class="guest-item">
+        <summary>${escapeHtml(guest.nome)}</summary>
+        <div class="guest-details">
+          <div><strong>WhatsApp:</strong> ${escapeHtml(guest.whatsapp)}</div>
+          <div><strong>Parente ou amigo de:</strong> ${escapeHtml(guest.relacaoPessoa)}</div>
+          <div><strong>O que é:</strong> ${escapeHtml(guest.relacaoDescricao)}</div>
+          <div><strong>Valor do presente:</strong> ${escapeHtml(guest.valorPresente)}</div>
+          <button class="btn btn-danger btn-small" type="button" data-delete="${guest.id}">Excluir</button>
+        </div>
+      </details>
+    `;
+  }).join("") : '<div class="empty-list">Nenhuma pessoa confirmada ainda.</div>';
+
+  absentList.innerHTML = absent.length ? absent.map(function(guest){
+    return `
+      <details class="guest-item">
+        <summary>${escapeHtml(guest.nome)}</summary>
+        <div class="guest-details">
+          <div><strong>WhatsApp:</strong> ${escapeHtml(guest.whatsapp)}</div>
+          <div><strong>Motivo:</strong> ${escapeHtml(guest.motivo || "Não informado")}</div>
+          <button class="btn btn-danger btn-small" type="button" data-delete="${guest.id}">Excluir</button>
+        </div>
+      </details>
+    `;
+  }).join("") : '<div class="empty-list">Nenhuma ausência registrada ainda.</div>';
+}
+
+function deleteGuest(id){
+  const guests = getGuests().filter(function(guest){return guest.id !== id;});
+  saveGuests(guests);
+  renderGuests();
+}
+
+document.getElementById("naoPresente").addEventListener("change", function(event){
+  setConfirmationRequired(event.target.checked);
+});
+
+document.getElementById("guestForm").addEventListener("submit", function(event){
+  event.preventDefault();
+  const form = event.currentTarget;
+  const isAbsent = document.getElementById("naoPresente").checked;
+
+  if(!form.checkValidity()){
+    form.reportValidity();
+    return;
+  }
+
+  const guest = {
+    id: String(Date.now()),
+    status: isAbsent ? "absent" : "confirmed",
+    nome: form.nome.value.trim(),
+    whatsapp: form.whatsapp.value.trim(),
+    relacaoPessoa: isAbsent ? "" : form.relacaoPessoa.value,
+    relacaoDescricao: isAbsent ? "" : form.relacaoDescricao.value.trim(),
+    valorPresente: isAbsent ? "" : form.valorPresente.value.trim(),
+    motivo: isAbsent ? form.motivo.value.trim() : "",
+    createdAt: new Date().toISOString()
+  };
+
+  const guests = getGuests();
+  guests.push(guest);
+  saveGuests(guests);
+  form.reset();
+  setConfirmationRequired(false);
+  renderGuests();
+  document.getElementById("formMessage").textContent = isAbsent ? "Sua resposta foi registrada. Obrigado por avisar." : "Presença confirmada com sucesso!";
+});
+
+document.getElementById("adminLogin").addEventListener("submit", function(event){
+  event.preventDefault();
+  const usuario = document.getElementById("adminUsuario").value.trim();
+  const senha = document.getElementById("adminSenha").value;
+  const message = document.getElementById("adminMessage");
+
+  if(usuario === ADMIN_USER && senha === ADMIN_PASS){
+    document.getElementById("adminLogin").hidden = true;
+    document.getElementById("adminPanel").classList.add("is-visible");
+    message.textContent = "";
+    renderGuests();
+  }else{
+    message.textContent = "Usuário ou senha incorretos.";
+  }
+});
+
+document.getElementById("logoutAdmin").addEventListener("click", function(){
+  document.getElementById("adminLogin").hidden = false;
+  document.getElementById("adminPanel").classList.remove("is-visible");
+  document.getElementById("adminLogin").reset();
+});
+
+document.getElementById("adminPanel").addEventListener("click", function(event){
+  const button = event.target.closest("[data-delete]");
+  if(button){
+    deleteGuest(button.dataset.delete);
+  }
+});
+
+document.getElementById("guestForm").addEventListener("reset", function(){
+  setTimeout(function(){
+    setConfirmationRequired(false);
+    document.getElementById("formMessage").textContent = "";
+  });
+});
+
 atualizarContador();
 setInterval(atualizarContador,1000);
+setConfirmationRequired(false);
+renderGuests();
 </script>
 
 </body>
