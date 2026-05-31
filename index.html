@@ -6,11 +6,13 @@
 
 <title>Convite de Casamento - Neroci & Vanessa</title>
 
+<!-- PREVIEW GRANDE PARA WHATSAPP / FACEBOOK / DISCORD -->
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Neroci & Vanessa">
 <meta property="og:title" content="💍 Neroci & Vanessa">
 <meta property="og:description" content="21 de Novembro de 2026 • Recanto Wollf">
 <meta property="og:url" content="https://neroci-vanessa.online/">
+
 <meta property="og:image" content="https://neroci-vanessa.online/banner-preview.jpg?v=10">
 <meta property="og:image:secure_url" content="https://neroci-vanessa.online/banner-preview.jpg?v=10">
 <meta property="og:image:type" content="image/jpeg">
@@ -36,9 +38,14 @@ body{
   color:#17352d;
 }
 
-button,input,select,textarea{font:inherit}
+button,input,select,textarea{
+  font:inherit;
+}
 
-.container{width:100%;max-width:1600px}
+.container{
+  width:100%;
+  max-width:1600px;
+}
 
 .convite{
   position:relative;
@@ -49,7 +56,10 @@ button,input,select,textarea{font:inherit}
   background:white;
 }
 
-.banner{width:100%;display:block}
+.banner{
+  width:100%;
+  display:block;
+}
 
 .btn-maps{
   position:absolute;
@@ -71,14 +81,20 @@ button,input,select,textarea{font:inherit}
   cursor:pointer;
 }
 
-.whatsapp-img img{width:100%;display:block}
+.whatsapp-img img{
+  width:100%;
+  display:block;
+}
 
 .pix-area{
   position:absolute;
-  right:1%;
+  right:calc(1% + 1cm);
   bottom:1%;
   width:8%;
   z-index:40;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
   text-align:center;
 }
 
@@ -156,7 +172,9 @@ button,input,select,textarea{font:inherit}
   gap:6px;
 }
 
-.field-full{grid-column:1/-1}
+.field-full{
+  grid-column:1/-1;
+}
 
 .field label,.choice-label{
   color:#0b5d47;
@@ -220,9 +238,19 @@ button,input,select,textarea{font:inherit}
   box-shadow:0 8px 18px rgba(11,93,71,.18);
 }
 
-.btn-secondary{background:#d7b56d;color:#17352d}
-.btn-danger{background:#9d2f2f}
-.btn-small{padding:8px 14px;font-size:13px}
+.btn-secondary{
+  background:#d7b56d;
+  color:#17352d;
+}
+
+.btn-danger{
+  background:#9d2f2f;
+}
+
+.btn-small{
+  padding:8px 14px;
+  font-size:13px;
+}
 
 .message{
   min-height:22px;
@@ -259,9 +287,18 @@ button,input,select,textarea{font:inherit}
   transform:translate(-50%,-50%) scale(1);
 }
 
-.admin-login{max-width:520px;margin:0 auto}
-.admin-panel{display:none}
-.admin-panel.is-visible{display:block}
+.admin-login{
+  max-width:520px;
+  margin:0 auto;
+}
+
+.admin-panel{
+  display:none;
+}
+
+.admin-panel.is-visible{
+  display:block;
+}
 
 .admin-columns{
   display:grid;
@@ -306,7 +343,9 @@ button,input,select,textarea{font:inherit}
   font-weight:bold;
 }
 
-.guest-item summary::-webkit-details-marker{display:none}
+.guest-item summary::-webkit-details-marker{
+  display:none;
+}
 
 .guest-details{
   border-top:1px solid #e5d3a8;
@@ -322,14 +361,19 @@ button,input,select,textarea{font:inherit}
   padding:18px 8px;
 }
 
-[hidden]{display:none!important}
+[hidden]{
+  display:none!important;
+}
 
 @media(max-width:760px){
-  .form-grid,.admin-columns{grid-template-columns:1fr}
+  .form-grid,.admin-columns{
+    grid-template-columns:1fr;
+  }
 }
 
 @media(max-width:600px){
   body{padding:6px}
+
   .container{max-width:100%}
 
   .convite{
@@ -351,7 +395,9 @@ button,input,select,textarea{font:inherit}
     margin-bottom:12px;
   }
 
-  .contador{gap:8px}
+  .contador{
+    gap:8px;
+  }
 
   .tempo{
     min-width:68px;
@@ -359,8 +405,13 @@ button,input,select,textarea{font:inherit}
     border-radius:13px;
   }
 
-  .tempo strong{font-size:22px}
-  .tempo span{font-size:9px}
+  .tempo strong{
+    font-size:22px;
+  }
+
+  .tempo span{
+    font-size:9px;
+  }
 }
 </style>
 </head>
@@ -369,6 +420,7 @@ button,input,select,textarea{font:inherit}
 <main class="container">
 
 <div class="convite">
+
 <img src="banner-convite2.png" class="banner" alt="Convite Casamento">
 
 <a class="btn-maps"
@@ -384,12 +436,14 @@ target="_blank">
 
 <div class="pix-area">
 <img src="qrcode-pix.png" alt="QR Code PIX">
-<div class="pix-sugestao">Sugestão de 200,00</div>
+<div class="pix-sugestao">Sugestão 200,00</div>
 </div>
+
 </div>
 
 <section class="contador-box">
 <div class="contador-titulo">Faltam para o casamento</div>
+
 <div class="contador">
 <div class="tempo"><strong id="dias">0</strong><span>Dias</span></div>
 <div class="tempo"><strong id="horas">0</strong><span>Horas</span></div>
