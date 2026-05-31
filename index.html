@@ -256,6 +256,34 @@ button,input,select,textarea{
   font-weight:bold;
 }
 
+.toast{
+  position:fixed;
+  left:50%;
+  top:50%;
+  transform:translate(-50%,-50%) scale(.96);
+  z-index:999;
+  max-width:min(92vw,520px);
+  padding:20px 26px;
+  border:2px solid #d7b56d;
+  border-radius:18px;
+  background:#fff;
+  color:#0b5d47;
+  box-shadow:0 18px 60px rgba(0,0,0,.24);
+  font-family:Georgia,serif;
+  font-size:24px;
+  font-weight:bold;
+  line-height:1.25;
+  text-align:center;
+  opacity:0;
+  pointer-events:none;
+  transition:opacity .25s ease,transform .25s ease;
+}
+
+.toast.is-visible{
+  opacity:1;
+  transform:translate(-50%,-50%) scale(1);
+}
+
 .admin-login{
   max-width:520px;
   margin:0 auto;
@@ -474,6 +502,8 @@ target="_blank">
 <div class="message" id="formMessage" aria-live="polite"></div>
 </section>
 
+<div class="toast" id="toastMessage" role="status" aria-live="polite"></div>
+
 <section class="admin-box" id="admin">
 <h2 class="section-title">Painel Admin</h2>
 
@@ -606,6 +636,18 @@ function deleteGuest(id){
   renderGuests();
 }
 
+let toastTimer;
+
+function showToast(message){
+  const toast = document.getElementById("toastMessage");
+  toast.textContent = message;
+  toast.classList.add("is-visible");
+  clearTimeout(toastTimer);
+  toastTimer = setTimeout(function(){
+    toast.classList.remove("is-visible");
+  }, 5000);
+}
+
 document.getElementById("naoPresente").addEventListener("change", function(event){
   setConfirmationRequired(event.target.checked);
 });
@@ -638,7 +680,8 @@ document.getElementById("guestForm").addEventListener("submit", function(event){
   form.reset();
   setConfirmationRequired(false);
   renderGuests();
-  document.getElementById("formMessage").textContent = isAbsent ? "Sua resposta foi registrada. Obrigado por avisar." : "Presença confirmada com sucesso!";
+  document.getElementById("formMessage").textContent = "";
+  showToast(isAbsent ? "Que pena que não poderá ir 🥺" : "Obrigado por confirmar sua Presença 😍");
 });
 
 document.getElementById("adminLogin").addEventListener("submit", function(event){
@@ -678,7 +721,7 @@ document.getElementById("guestForm").addEventListener("reset", function(){
 });
 
 atualizarContador();
-setInterval(atualizarContador,1000);
+setInterval(atualContador,1000);
 setConfirmationRequired(false);
 renderGuests();
 </script>
